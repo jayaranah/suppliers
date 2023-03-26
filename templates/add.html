@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Add Supplier</h1>
+  <hr>
+
+  <form method="POST" action="{{ url_for('add') }}">
+    <div class="form-group">
+      <label for="supplier_name">Supplier Name *</label>
+      <input type="text" class="form-control" id="supplier_name" name="supplier_name" required>
+    </div>
+    <div class="form-group">
+      <label for="contact_person">Contact Person</label>
+      <input type="text" class="form-control" id="contact_person" name="contact_person">
+    </div>
+    <div class="form-group">
+      <label for="telephone_1">Telephone 1</label>
+      <input type="text" class="form-control" id="telephone_1" name="telephone_1">
+    </div>
+    <div class="form-group">
+      <label for="telephone_2">Telephone 2</label>
+      <input type="text" class="form-control" id="telephone_2" name="telephone_2">
+    </div>
+    <div class="form-group">
+      <label for="telephone_3">Telephone 3</label>
+      <input type="text" class="form-control" id="telephone_3" name="telephone_3">
+    </div>
+    <div class="form-group">
+      <label for="mobile_1">Mobile 1</label>
+      <input type="text" class="form-control" id="mobile_1" name="mobile_1">
+    </div>
+    <div class="form-group">
+      <label for="mobile_2">Mobile 2</label>
+      <input type="text" class="form-control" id="mobile_2" name="mobile_2">
+    </div>
+    <div class="form-group">
+      <label for="fax">Fax</label>
+      <input type="text" class="form-control" id="fax" name="fax">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="website">Website</label>
+      <input type="url" class="form-control" id="website" name="website">
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <textarea class="form-control" id="address" name="address"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="term">Term</label>
+      <textarea class="form-control" id="term" name="term"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="notes">Notes</label>
+      <textarea class="form-control" id="notes" name="notes"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Supplier</button>
+  </form>
+{% endblock %}
