@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1 class="text-center">Suppliers List</h1>
+  <a href="{{ url_for('add') }}" class="btn btn-primary mb-3">Add Supplier</a>
+  <form class="form-inline mb-3" action="{{ url_for('search') }}" method="POST">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search_query">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  {% if rows %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Supplier Name</th>
+          <th>Contact Person</th>
+          <th>Telephone 1</th>
+          <th>Mobile 1</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Term</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+          <tr>
+            <td>{{ row['id'] }}</td>
+            <td>{{ row['supplier_name'] }}</td>
+            <td>{{ row['contact_person'] }}</td>
+            <td>{{ row['telephone_1'] }}</td>
+            <td>{{ row['mobile_1'] }}</td>
+            <td>{{ row['email'] }}</td>
+            <td>{{ row['address'] }}</td>
+            <td>{{ row['term'] }}</td>
+            <td>
+              <a href="{{ url_for('edit', id=row['id']) }}" class="btn btn-sm btn-outline-primary">Edit</a>
+              <a href="{{ url_for('delete', id=row['id']) }}" class="btn btn-sm btn-outline-danger">Delete</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No suppliers found.</p>
+  {% endif %}
+</div>
+{% endblock %}
